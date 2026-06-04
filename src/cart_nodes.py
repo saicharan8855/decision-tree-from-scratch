@@ -5,8 +5,8 @@ class InternalNode:
         self,
         feature_index : int,
         threshold : float,
-        left : Optional[Union["InternalNode", "LeafNode"]],
-        right : Optional[Union["InternalNode", "LeafNode"]],
+        left : Union["InternalNode", "LeafNode"],
+        right : Union["InternalNode", "LeafNode"],
         impurity : float,
         n_samples : int,
     ) -> None:
