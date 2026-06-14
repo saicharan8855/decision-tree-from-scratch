@@ -49,3 +49,15 @@ def variance_reduction(y):
     variance = np.sum((y - mean_y) ** 2 )/len(y)
 
     return float(variance)
+
+def get_impurity(y, criterion):
+    
+    
+    if criterion == "gini":
+        return gini(y)
+    elif criterion == "entropy":
+        return entropy(y)
+    elif criterion == "variance":
+        return variance_reduction(y)
+    else:
+        raise ValueError(f"unknown criterion: {criterion}. Must be 'gini', 'entropy', or 'variance'.")
