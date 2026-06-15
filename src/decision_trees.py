@@ -62,18 +62,19 @@ class DecisionTree:
             threshold=best_threshold,
             left=left_child,
             right=right_child,
-            gain=best_gain
+            impurity=best_gain,
+            n_samples=len(y)
         )
     
     def _make_leaf(self, y):
         if self.task == "classification":
             counts = Counter(y)
             majority_class = counts.most_common(1)[0][0]
-            return LeafNode(value=majority_class, class_counts=dict(counts))
+            return LeafNode(value=majority_class, n_samples=len(y), class_counts=dict(counts))
 
         if self.task == "regression":
             mean_value = float(np.mean(y))
-            return LeafNode(value=mean_value, class_counts=None)
+            return LeafNode(value=mean_value, n_samples=len(y), class_counts=None)
 
         raise ValueError("task must be 'classification' or 'regression'")
 
