@@ -93,7 +93,7 @@ def _prune_tree(root , alpha , X , y , task = "classification"):
 
         eff_alpha = compute_effective_alpha(node , X_node , y_node , task)
 
-        if eff_alpha <= alpha:
+        if eff_alpha < alpha:
             if task == "classification":
                 value = _majority_class(y_node)
                 counts = dict(Counter(y_node))
