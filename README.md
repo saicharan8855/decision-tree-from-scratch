@@ -96,17 +96,17 @@ These notebooks live in `Theory/` and are meant to be read before the correspond
 
 ### Classification: Gini vs Entropy, Depth Study
 
-![Depth Accuracy](Results/figures/depth_accuracy.png)
+![Depth Accuracy](results/depth_accuracy.png)
 
 Training and test accuracy across tree depths on the Breast Cancer dataset. The widening gap between curves shows where overfitting begins.
 
 ### Confusion Matrix
 
-![Confusion Matrix](Results/figures/confusion_matrix.png)
+![Confusion Matrix](results/confusion_matrix.png)
 
 ### Regression: MSE vs Depth
 
-![Regression Depth MSE](Results/figures/reg_depth_mse.png)
+![Regression Depth MSE](results/reg_depth_mse.png)
 
 The variance-reduction criterion tested on a synthetic sine-wave regression task shows the same overfitting pattern as classification.
 
@@ -114,11 +114,11 @@ The variance-reduction criterion tested on a synthetic sine-wave regression task
 
 | max_depth | min_samples_split | min_impurity_decrease |
 |---|---|---|
-| ![Depth Effect](Results/figures/depth_effect.png) | ![Min Samples Split](Results/figures/split_effect.png) | ![Min Impurity Decrease](Results/figures/impurity_effect.png) |
+| ![Depth Effect](results/depth_effect.png) | ![Min Samples Split](results/split_effect.png) | ![Min Impurity Decrease](results/impurity_effect.png) |
 
 ### Cost-Complexity Pruning Path
 
-![Pruning Path](Results/figures/pruning_path.png)
+![Pruning Path](results/pruning_path.png)
 
 Pruning with a manually selected alpha improved test accuracy over the unpruned tree while reducing the leaf count substantially — a direct demonstration of the bias-variance tradeoff from `Theory/04`.
 
@@ -133,7 +133,7 @@ Four failure modes were deliberately induced and measured on Breast Cancer:
 
 ### Benchmark vs Sklearn
 
-![Benchmark Depth Comparison](Results/figures/benchmark_depth.png)
+![Benchmark Depth Comparison](results/benchmark_depth.png)
 
 At `max_depth=5` on the Breast Cancer test set, this implementation achieves accuracy comparable to `sklearn.tree.DecisionTreeClassifier`, with the expected slowdown in training and inference time due to pure Python/NumPy execution versus sklearn's Cython-optimized backend. Full comparison — including a depth sweep and root-split agreement check — is in `Notebooks/08_Benchmark_vs_Sklearn.ipynb`.
 
