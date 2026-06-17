@@ -47,7 +47,8 @@ def render_prediction_tab(model):
 
         leaf = _get_leaf(model.root, X[0])
         if leaf is not None and getattr(leaf, "class_counts", None):
-            st.write("Leaf class distribution:", leaf.class_counts)
+            clean_counts = {int(k): int(v) for k, v in leaf.class_counts.items()}
+            st.write("Leaf class distribution:", clean_counts)
 
 
 def _get_leaf(node, x):
